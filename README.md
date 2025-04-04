@@ -112,10 +112,8 @@ Ajustar configurações de timeout e corrigir erro de timeout execedido ao invoc
 
 ```
 // INSIRA SUA ANÁLISE OU PARECER ABAIXO
-
-
-
-```
+O problema era que a aplicação apresentava timeout ao executar o código,porém validei que ao alterar a Resposta da chamada externa para 2000 e deixar o valor de 3000 na chamada da API, consegui fazer executar sem erros conforme abaixo:
+![alt text](image.png)
 
 
 ---
@@ -179,10 +177,11 @@ Alterar limite de requisições permitidas para 100 num intervalo de 1 minuto e 
 
 ```
 // INSIRA SUA ANÁLISE OU PARECER ABAIXO
+Para testar o rate limit foi efetuado o teste na aplicação. Para executar o teste foi adicionada a função simulateRateLimitError() que faz 105 requisições simultaneas que retornou as mensagens de erro após 100 requisições validando o Rate limit aplicado.
+ 
+![alt text](image-1.png)
 
 
-
-```
 
 
 ---
@@ -247,8 +246,9 @@ Aumentar quantidade de chamadas simultâneas e avaliar o comportamento.
 ```
 // INSIRA SUA ANÁLISE OU PARECER ABAIXO
 
+Ao realizar 10 requisições simultaneas, o comportamento foi que duas requisições obtiveram sucesso e as demais erro. Conclui-se que a aplicação suporta 2 requisições simultaneas.
 
-
+![alt text](image-2.png)
 ```
 
 
@@ -327,7 +327,8 @@ Observar comportamento do circuito no console.
 
 ```
 // INSIRA SUA ANÁLISE OU PARECER ABAIXO
-
+Analisei que ao alterar o campo de percentual de falhas de 0.8 para 0.5 ele obteve apensa duas chamadas externas, porém executando ele apenas com 0,10 e aumentando o numero de requisições ele obteve algumas chamadas e um grande numero de fallback.
+![alt text](image-3.png)
 
 
 ```
